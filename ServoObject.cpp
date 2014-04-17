@@ -7,28 +7,28 @@ ServoObject::setController(MaestroController* maestro)
 
 void ServoObject::setChannel(int channel)
 {
-    m_channel = Channel;
-};
+    m_channel = channel;
+}
 
 void ServoObject::setMin(int min)
 {
-    m_min = Min;
-};
+    m_min = min;
+}
 
 void ServoObject::setMid(int mid)
 {
-    m_mid = Mid;
-};
+    m_mid = mid;
+}
 
 void ServoObject::setMax(int max)
 {
-    m_max = Max;
-};
+    m_max = max;
+}
 
 void ServoObject::setRange(int range)
 {
-    m_range = Range/2;
-};
+    m_range = range/2;
+}
     
 void ServoObject::setSpeed(unsigned short speed) {
     m_speed = speed;

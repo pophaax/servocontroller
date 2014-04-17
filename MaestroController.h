@@ -12,8 +12,8 @@
  * NOTE: The Maestro's serial mode must be set to "USB Dual Port".
  */
 
-#ifndef MAESTROCONTROLLER_H
-#define	MAESTROCONTROLLER_H
+#ifndef __MAESTROCONTROLLER_H__
+#define	__MAESTROCONTROLLER_H__
 
 #include <iostream>
 
@@ -27,13 +27,13 @@
 //    GET_ERROR = 0xA1
 //};
 
-#define SET_SPEED               0x87
-#define SET_ACCELERATION        0x89
-#define SET_POSITION            0x84
-#define SET_POSITION_HOME       0xA2
-#define GET_POSITION            0x90
-#define GET_MOVING_STATE        0x93
-#define GET_ERROR               0xA1
+const int SET_SPEED =           0x87;
+const int SET_ACCELERATION =    0x89;
+const int SET_POSITION =        0x84;
+const int SET_POSITION_HOME =   0xA2;
+const int GET_POSITION =        0x90;
+const int GET_MOVING_STATE =    0x93;
+const int GET_ERROR =           0xA1;
 
 
 
@@ -43,7 +43,7 @@ public:
     MaestroController();
     ~MaestroController();
     
-    void setPort(const char * portName)
+    void setPort(const char * portName);
     void writeCommand(unsigned char type, int channel, int value);
     int readRespons();
     unsigned short getStatus(unsigned char type);
