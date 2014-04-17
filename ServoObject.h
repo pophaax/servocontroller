@@ -7,26 +7,26 @@
  * 
  */
 
-#ifndef SERVOOBJECT_H
-#define	SERVOOBJECT_H
+#ifndef __SERVOOBJECT_H__
+#define	__SERVOOBJECT_H__
 
 #include "MaestroController.h"
 
 class ServoObject {
 public:
 
-    ServoObject(MaestroController * Maestro);
+    ServoObject(MaestroController * maestro);
     
     // void loadConfig(cfg);
-    void setChannel(int Channel){m_channel = Channel;};
-    void setMin(int Min){m_min = Min;};
-    void setMid(int Mid){m_mid = Mid;};
-    void setMax(int Max){m_max = Max;};
-    void setRange(int Range){m_range = Range/2;};
+    void setChannel(int channel){m_channel = Channel;};
+    void setMin(int min){m_min = Min;};
+    void setMid(int mid){m_mid = Mid;};
+    void setMax(int max){m_max = Max;};
+    void setRange(int range){m_range = Range/2;};
     
-    void setSpeed(unsigned short value);
-    void setAcceleration(unsigned short value);
-    void setPosition(unsigned short value);
+    void setSpeed(unsigned short speed);
+    void setAcceleration(unsigned short acceleration);
+    void setPosition(unsigned short position);
     
     int getPosition();
 
@@ -44,5 +44,5 @@ private:
     
 };
 
-#endif	/* SERVOOBJECT_H */
+#endif
 
