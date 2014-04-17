@@ -18,11 +18,11 @@ public:
     ServoObject(MaestroController * Maestro);
     
     // void loadConfig(cfg);
-    void setChannel(int Channel){mChannel = Channel;};
-    void setMin(int Min){mMin = Min;};
-    void setMid(int Mid){mMid = Mid;};
-    void setMax(int Max){mMax = Max;};
-    void setRange(int Range){mRange = Range/2;};
+    void setChannel(int Channel){m_channel = Channel;};
+    void setMin(int Min){m_min = Min;};
+    void setMid(int Mid){m_mid = Mid;};
+    void setMax(int Max){m_max = Max;};
+    void setRange(int Range){m_range = Range/2;};
     
     void setSpeed(unsigned short value);
     void setAcceleration(unsigned short value);
@@ -31,16 +31,16 @@ public:
     int getPosition();
 
 private:
-    int mChannel;
-    int mMin;
-    int mMid;
-    int mMax;
+    int m_channel;
+    int m_min;
+    int m_mid;
+    int m_max;
     
-    int mRange;
-    int mSpeed;
-    int mAcceleration;
+    int m_range;
+    int m_speed;
+    int m_acceleration;
     
-    MaestroController * mMaestro;
+    MaestroController * m_maestro;
     
 };
 
