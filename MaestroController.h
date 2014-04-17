@@ -35,19 +35,19 @@
 #define GET_MOVING_STATE        0x93
 #define GET_ERROR               0xA1
 
+
+
 class MaestroController {
 public:
 
-    MaestroController(const char * portName) {
-        ioDeviceHandle = -1;
-        ioDeviceHandlePath = portName;
-    }
-
+    MaestroController();
+    ~MaestroController();
+    
+    void setPort(const char * portName)
     void writeCommand(unsigned char type, int channel, int value);
     int readRespons();
     unsigned short getStatus(unsigned char type);
-
-    ~MaestroController();
+    
 private:
     int ioDeviceHandle;
     const char *ioDeviceHandlePath;
