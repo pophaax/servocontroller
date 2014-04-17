@@ -1,9 +1,35 @@
 #include "ServoObject.h"
 
-ServoObject::ServoObject(MaestroController* maestro){
+ServoObject::setController(MaestroController* maestro)
+{
     m_maestro = maestro;
 }
 
+void ServoObject::setChannel(int channel)
+{
+    m_channel = Channel;
+};
+
+void ServoObject::setMin(int min)
+{
+    m_min = Min;
+};
+
+void ServoObject::setMid(int mid)
+{
+    m_mid = Mid;
+};
+
+void ServoObject::setMax(int max)
+{
+    m_max = Max;
+};
+
+void ServoObject::setRange(int range)
+{
+    m_range = Range/2;
+};
+    
 void ServoObject::setSpeed(unsigned short speed) {
     m_speed = speed;
     m_maestro->writeCommand(SET_SPEED, m_channel, speed);
