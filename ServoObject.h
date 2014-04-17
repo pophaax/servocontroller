@@ -16,6 +16,7 @@ class ServoObject {
 public:
 
     ServoObject();
+	~ServoObject();
     
     // void loadConfig(cfg);
     void setController(MaestroController * maestro);

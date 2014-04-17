@@ -1,4 +1,13 @@
 #include "ServoObject.h"
+#include <iostream>
+
+ServoObject::ServoObject() {
+	
+}
+
+ServoObject::~ServoObject() {
+	
+}
 
 void ServoObject::setController(MaestroController* maestro)
 {
@@ -49,8 +58,9 @@ void ServoObject::setPosition(unsigned short position) {
 }
 
 int ServoObject::getPosition() {
-    
+    std::cout << "getPos start\n";
     m_maestro->writeCommand(GET_POSITION, m_channel, -1);
-    return m_maestro->readRespons();
+	std::cout << "getPos end\n";
+	return m_maestro->readRespons();
     
 }

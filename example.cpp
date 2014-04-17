@@ -37,11 +37,15 @@ void mySleep(int sleepMs) {
 
 int main(int argc, char** argv) {
 
-    MaestroController * maestro = new MaestroController("/dev/ttyACM0");
-
-    ServoObject * servo1 = new ServoObject(maestro);
-    ServoObject * servo2 = new ServoObject(maestro);
-
+	MaestroController * maestro = new MaestroController();
+	
+	ServoObject * servo1 = new ServoObject();
+	ServoObject * servo2 = new ServoObject();
+try {
+	maestro->setPort("/dev/ttyACM0");
+	servo1->setController(maestro);
+	servo2->setController(maestro);
+	
     /** Config **/
     servo1->setChannel(0);
     servo1->setMax(8000);
@@ -60,7 +64,6 @@ int main(int argc, char** argv) {
     servo2->setPosition(mid);
     cout << "done!" << endl;
     
-    while (1) {
 
         int position;
         cout << "Enter position: ";
@@ -68,11 +71,10 @@ int main(int argc, char** argv) {
         servo1->setPosition(position);
         servo2->setPosition(position);
         
-        cout << "#Status " << endl;
-        cout << "serov 1 Position > " << servo1->getPosition() << endl;
-        cout << "serov 2 Position > " << servo2->getPosition() << endl;
-        cout << "#Errors > " << maestro->getStatus(GET_ERROR) << endl;
-    }
+ //       cout << "#Status " << endl;
+//        cout << "serov 1 Position > " << servo1->getPosition() << endl;
+//        cout << "serov 2 Position > " << servo2->getPosition() << endl;
+//        cout << "#Errors > " << maestro->getStatus(GET_ERROR) << endl;
 //    while(1){
 //        servo1->setPosition(s3);
 //        servo2->setPosition(b3);
@@ -87,9 +89,11 @@ int main(int argc, char** argv) {
 //        cout << "#Errors > " << maestro->getStatus(GET_ERROR) << endl;
 //    }
     
-    delete servo1;
-    delete servo2;
-    delete maestro;
-    
-    return 0;
+} catch(const char* e) {
+	cout << e << "\n";
+}
+	delete servo1;
+	delete servo2;
+	delete maestro;
+	return 0;
 }
