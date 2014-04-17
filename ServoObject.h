@@ -15,14 +15,16 @@
 class ServoObject {
 public:
 
-    ServoObject(MaestroController * maestro);
+    ServoObject();
     
     // void loadConfig(cfg);
-    void setChannel(int channel){m_channel = Channel;};
-    void setMin(int min){m_min = Min;};
-    void setMid(int mid){m_mid = Mid;};
-    void setMax(int max){m_max = Max;};
-    void setRange(int range){m_range = Range/2;};
+    void setController(MaestroController * maestro);
+    
+    void setChannel(int channel);
+    void setMin(int min);
+    void setMid(int mid);
+    void setMax(int max);
+    void setRange(int range);
     
     void setSpeed(unsigned short speed);
     void setAcceleration(unsigned short acceleration);
