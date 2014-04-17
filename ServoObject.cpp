@@ -1,30 +1,30 @@
 #include "ServoObject.h"
 
-ServoObject::ServoObject(MaestroController* Maestro){
-    mMaestro = Maestro;
+ServoObject::ServoObject(MaestroController* maestro){
+    m_maestro = maestro;
 }
 
-void ServoObject::setSpeed(unsigned short Speed) {
-    mSpeed = Speed;
-    mMaestro->writeCommand(SET_SPEED, mChannel, Speed);
+void ServoObject::setSpeed(unsigned short speed) {
+    m_speed = speed;
+    m_maestro->writeCommand(SET_SPEED, m_channel, speed);
 }
 
-void ServoObject::setAcceleration(unsigned short Acceleration) {
-    mAcceleration = Acceleration;
-    mMaestro->writeCommand(SET_ACCELERATION, mChannel, Acceleration);
+void ServoObject::setAcceleration(unsigned short acceleration) {
+    m_acceleration = acceleration;
+    m_maestro->writeCommand(SET_ACCELERATION, m_channel, acceleration);
 }
 
-void ServoObject::setPosition(unsigned short Position) {
+void ServoObject::setPosition(unsigned short position) {
 
     //double NewValue = (((OldValue - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin;
-    Position = (((Position - mRange) * (mMax - mMin)) / (-mRange - mRange)) + mMin;
+    position = (((position - m_range) * (m_max - m_min)) / (-m_range - m_range)) + m_min;
     
-    mMaestro->writeCommand(SET_POSITION, mChannel, Position);
+    m_maestro->writeCommand(SET_POSITION, m_channel, position);
 }
 
 int ServoObject::getPosition() {
     
-    mMaestro->writeCommand(GET_POSITION, mChannel, -1);
-    return mMaestro->readRespons();
+    m_maestro->writeCommand(GET_POSITION, m_channel, -1);
+    return m_maestro->readRespons();
     
 }
