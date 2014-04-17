@@ -1,6 +1,6 @@
 #include "ServoObject.h"
 
-ServoObject::setController(MaestroController* maestro)
+void ServoObject::setController(MaestroController* maestro)
 {
     m_maestro = maestro;
 }

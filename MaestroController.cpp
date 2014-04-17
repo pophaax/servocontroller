@@ -7,7 +7,7 @@
 
 
 
-MaestroController() {
+MaestroController::MaestroController() {
     ioDeviceHandle = -1;
 }
 
@@ -18,7 +18,7 @@ void MaestroController::setPort(const char * portName)
     
 void MaestroController::writeCommand(unsigned char type, int channel = -1, int value = -1)
 {
-    unsigned char command[] = {type, channel, value & 0x7F, (value >> 7) & 0x7F};
+    unsigned char command[] = {type, (unsigned char) channel, (unsigned char) (value & 0x7F), (unsigned char) ((value >> 7) & 0x7F) };
 
     if (isOpenPort() == false)
     {
