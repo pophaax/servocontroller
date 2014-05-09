@@ -24,11 +24,6 @@ void ServoObject::setMin(int min)
     m_min = min;
 }
 
-void ServoObject::setMid(int mid)
-{
-    m_mid = mid;
-}
-
 void ServoObject::setMax(int max)
 {
     m_max = max;
