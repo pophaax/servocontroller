@@ -23,7 +23,6 @@ public:
     
     void setChannel(int channel);
     void setMin(int min);
-    void setMid(int mid);
     void setMax(int max);
     void setRange(int range);
     
@@ -36,7 +35,6 @@ public:
 private:
     int m_channel;
     int m_min;
-    int m_mid;
     int m_max;
     
     int m_range;
