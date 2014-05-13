@@ -31,6 +31,6 @@ $(FILE_SERVO) : $(SOURCES_SERVO) $(HEADERS_SERVO)
 	$(CC) $(SOURCES_SERVO) $(FLAGS) $(LIBS) -c -o $(FILE_SERVO)
 
 
-example : $(SOURCES) $(HEADERS)
+example : $(SOURCES) $(HEADERS) example.cpp
 	$(CC) $(SOURCES) example.cpp $(FLAGS) $(LIBS) -o example
 
