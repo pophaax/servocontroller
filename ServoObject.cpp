@@ -19,43 +19,24 @@ void ServoObject::setChannel(int channel)
     m_channel = channel;
 }
 
-void ServoObject::setMin(int min)
+void ServoObject::setSpeed(unsigned short speed)
 {
-    m_min = min;
+	m_maestro->writeCommand(SET_SPEED, m_channel, speed);
 }
 
-void ServoObject::setMax(int max)
+void ServoObject::setAcceleration(unsigned short acceleration)
 {
-    m_max = max;
+	m_maestro->writeCommand(SET_ACCELERATION, m_channel, acceleration);
 }
 
-void ServoObject::setRange(int range)
+void ServoObject::setPosition(unsigned short position)
 {
-    m_range = range/2;
-}
-    
-void ServoObject::setSpeed(unsigned short speed) {
-    m_speed = speed;
-    m_maestro->writeCommand(SET_SPEED, m_channel, speed);
-}
-
-void ServoObject::setAcceleration(unsigned short acceleration) {
-    m_acceleration = acceleration;
-    m_maestro->writeCommand(SET_ACCELERATION, m_channel, acceleration);
-}
-
-void ServoObject::setPosition(unsigned short position) {
-
-    //double NewValue = (((OldValue - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin;
-    position = (((position - m_range) * (m_max - m_min)) / (-m_range - m_range)) + m_min;
-    
     m_maestro->writeCommand(SET_POSITION, m_channel, position);
 }
 
-int ServoObject::getPosition() {
-    std::cout << "getPos start\n";
+int ServoObject::getPosition()
+{
     m_maestro->writeCommand(GET_POSITION, m_channel, -1);
-	std::cout << "getPos end\n";
 	return m_maestro->readRespons();
     
 }

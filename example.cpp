@@ -52,13 +52,16 @@ try {
     servo1->setMin(4000);
     servo1->setRange(90);
 
+	servo1->setAcceleration(0);
+	servo1->setSpeed(0);
+	
     servo2->setChannel(1);
     servo2->setMax(8000);
-    servo2->setMin(4000);
+    servo2->setMin(0);
     servo2->setRange(90);
 
-    servo2->setAcceleration(20);
-    servo2->setSpeed(10);
+    servo2->setAcceleration(0);
+    servo2->setSpeed(0);
 
     servo1->setPosition(mid);
     servo2->setPosition(mid);
