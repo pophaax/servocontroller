@@ -22,6 +22,9 @@ public:
     void setController(MaestroController * maestro);
     
     void setChannel(int channel);
+    void setMin(int min);
+    void setMax(int max);
+    
     void setSpeed(unsigned short speed);
     void setAcceleration(unsigned short acceleration);
     void setPosition(unsigned short position);
@@ -29,7 +32,14 @@ public:
     int getPosition();
 
 private:
-    int m_channel;  
+    int m_channel;
+    int m_min;
+    int m_max;
+    
+    int m_range;
+    int m_speed;
+    int m_acceleration;
+    
     MaestroController * m_maestro;
     
 };

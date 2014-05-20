@@ -16,87 +16,42 @@
 
 using namespace std;
 
-/*
- * 
- */
-
-enum heading {
-    b3 = -45,
-    b2 = -30,
-    b1 = -15,
-    mid = 0,
-    s1 = 15,
-    s2 = 30,
-    s3 = 45,
-    null = -1
-};
-
-void mySleep(int sleepMs) {
-    usleep(sleepMs * 1000); // usleep takes sleep time in us
-}
-
 int main(int argc, char** argv) {
 
-	MaestroController * maestro = new MaestroController();
-	
-	ServoObject * servo1 = new ServoObject();
-	ServoObject * servo2 = new ServoObject();
-try {
-	maestro->setPort("/dev/ttyACM0");
-	servo1->setController(maestro);
-	servo2->setController(maestro);
-	
-    /** Config **/
-    servo1->setChannel(0);
-    servo1->setMax(8000);
-    servo1->setMin(4000);
-    servo1->setRange(90);
+  MaestroController* maestro = new MaestroController();
 
-	servo1->setAcceleration(0);
-	servo1->setSpeed(0);
-	
-    servo2->setChannel(1);
-    servo2->setMax(8000);
-    servo2->setMin(0);
-    servo2->setRange(90);
+  ServoObject* servo = new ServoObject();
 
-    servo2->setAcceleration(0);
-    servo2->setSpeed(0);
-
-    servo1->setPosition(mid);
-    servo2->setPosition(mid);
-    cout << "done!" << endl;
+  try {
     
-
+    maestro->setPort("/dev/ttyACM0");
+    
+    servo->setController(maestro);
+    
+    servo->setMin(2000);
+    
+    servo->setMax(4000);
+    
+    while(true) {
         int position;
         cout << "Enter position: ";
         cin >> position;
-        servo1->setPosition(position);
-        servo2->setPosition(position);
-        
- //       cout << "#Status " << endl;
-//        cout << "serov 1 Position > " << servo1->getPosition() << endl;
-//        cout << "serov 2 Position > " << servo2->getPosition() << endl;
-//        cout << "#Errors > " << maestro->getStatus(GET_ERROR) << endl;
-//    while(1){
-//        servo1->setPosition(s3);
-//        servo2->setPosition(b3);
-//        mySleep(5000);
-//        cout << servo1->getPosition() << endl;
-//        cout << servo2->getPosition() << endl;
-//        servo1->setPosition(b3);
-//        servo2->setPosition(s3);
-//        mySleep(5000);
-//        cout << servo1->getPosition() << endl;
-//        cout << servo2->getPosition() << endl;
-//        cout << "#Errors > " << maestro->getStatus(GET_ERROR) << endl;
-//    }
-    
-} catch(const char* e) {
-	cout << e << "\n";
-}
-	delete servo1;
-	delete servo2;
-	delete maestro;
-	return 0;
+        servo->setPosition(position);
+        cout << servo->getPosition() << endl;
+        cout << "#Status " << endl;
+        cout << "#Servo position > " << 
+        servo->getPosition() << endl;
+    }
+
+  } catch(const char* error) {
+
+      cout << error << "\n";
+  }
+
+  delete servo;
+
+  delete maestro;
+
+  return 0;
+
 }
