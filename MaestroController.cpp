@@ -15,7 +15,7 @@ void MaestroController::setPort(const char * portName)
 {
     ioDeviceHandlePath = portName;
 }
-    
+
 void MaestroController::writeCommand(unsigned char type, int channel = -1, int value = -1)
 {
     unsigned char command[] = {type, channel, (value & 0x7F), ((value >> 7) & 0x7F) };

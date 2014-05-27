@@ -2,7 +2,7 @@
 #include <iostream>
 
 SensorObject::SensorObject() {
-
+ 
 }
 
 SensorObject::~SensorObject() {
@@ -27,35 +27,17 @@ int SensorObject::getPosition()
 
 int SensorObject::getDirection()
 {
-	int upBitCount = 0, lowBitCount = 0;
-	float total = 0;
-	int counter = 0;
-	bool init = true;
-	for (int i = 0; i < 50; i++) {
-		upBitCount = 0;
-		lowBitCount = 0;
-		if(init) {
-			init = false;
-			while (getPosition() > 100);
-			while (getPosition() < 100);
-		}
-
-
-		while (getPosition() > 100) {
-			upBitCount++;
-		}
-
-		while (getPosition() < 100) {
-			lowBitCount++;
-		}
-
-		//std::cout << "lowBits: " << lowBitCount << "\n" << "highBits: " << upBitCount << "\n";
-		//std::cout << "percentage: " << (((float)upBitCount) / (lowBitCount+upBitCount)) << "\n";
-		if ((lowBitCount+upBitCount) != 0) {
-			total += (((float)upBitCount) / (lowBitCount+upBitCount));
-			counter++;
+	int high = 0, low = 0;
+	
+	for (int i = 0; i < 1000; i++) {
+		
+		if (getPosition() > 100) {
+			high++;
+		} else {
+			low++;
 		}
 	}
-
-	return (int)((total/counter)*360);
+	float percent = ((float)high) / (low+high);
+	
+	return (int)(percent*360);
 }

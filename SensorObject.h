@@ -12,7 +12,7 @@ public:
     // void loadConfig(cfg);
     void setController(MaestroController * maestro);
 	void setChannel(int channel);
-	
+
     int getDirection();
 
 private:

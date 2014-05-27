@@ -2,7 +2,7 @@
 #include <iostream>
 
 ServoObject::ServoObject() {
-	
+
 }
 
 ServoObject::~ServoObject() {
