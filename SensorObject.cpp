@@ -31,8 +31,9 @@ int SensorObject::getDirection()
 	float total = 0;
 	int counter = 0;
 	bool init = true;
-	int timesLeft = 10;
 	for (int i = 0; i < 50; i++) {
+		upBitCount = 0;
+		lowBitCount = 0;
 		if(init) {
 			init = false;
 			while (getPosition() > 100);
