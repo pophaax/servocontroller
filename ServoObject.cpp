@@ -54,9 +54,7 @@ void ServoObject::setPosition(unsigned short percentage) {
 }
 
 int ServoObject::getPosition() {
-    std::cout << "getPos start\n";
     m_maestro->writeCommand(GET_POSITION, m_channel, -1);
-	std::cout << "getPos end\n";
 	return m_maestro->readRespons();
     
 }
