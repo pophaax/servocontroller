@@ -46,7 +46,6 @@ public:
     void setPort(const char * portName);
     void writeCommand(unsigned char type, int channel, int value);
     int readRespons();
-    unsigned short getStatus(unsigned char type);
     
 private:
     int ioDeviceHandle;

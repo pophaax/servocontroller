@@ -27,7 +27,7 @@ void MaestroController::writeCommand(unsigned char type, int channel = -1, int v
 
     if (write(ioDeviceHandle, command, sizeof (command)) == -1)
     {
-        perror("[Warning] MaestroController writing");
+        throw "MaestroController::writeCommand()";
     }
 }
 
@@ -41,7 +41,7 @@ int MaestroController::readRespons()
     unsigned short dataHandle = 0;
     if (read(ioDeviceHandle, &dataHandle, sizeof (dataHandle)) != sizeof (dataHandle))
     {
-        perror("[Warning] MaestroController getErrors");
+        throw "MaestroController::readRespons()";
     }
     return dataHandle;
 }
@@ -58,7 +58,7 @@ void MaestroController::openPort()
 
     if (isOpenPort() == false)
     {
-        throw "[Error] MaestroController openPort";
+        throw "MaestroController::openPort()";
     }
 }
 
@@ -69,22 +69,6 @@ bool MaestroController::isOpenPort()
         return false;
     }
     return true;
-}
-
-unsigned short MaestroController::getStatus(unsigned char type)
-{
-    const unsigned char data[] = {type};
-    if (write(ioDeviceHandle, data, sizeof (data)) != sizeof (data))
-    {
-        perror("[Warning] MaestroController getErrors1");
-    }
-    
-    unsigned short status = 0;
-    if (read(ioDeviceHandle, &status, sizeof (status)) != sizeof (status))
-    {
-        perror("[Warning] MaestroController getErrors2");
-    }
-    return status;
 }
 
 MaestroController::~MaestroController()
