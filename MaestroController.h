@@ -16,6 +16,7 @@
 #define	__MAESTROCONTROLLER_H__
 
 #include <iostream>
+#include <string>
 
 //enum COMMAND_BYTE {
 //    SET_SPEED = 0x87,
@@ -43,13 +44,13 @@ public:
     MaestroController();
     ~MaestroController();
     
-    void setPort(const char * portName);
+    void setPort(std::string portName);
     void writeCommand(unsigned char type, int channel, int value);
     int readRespons();
     
 private:
     int ioDeviceHandle;
-    const char *ioDeviceHandlePath;
+    std::string ioDeviceHandlePath;
 
     void openPort();
     bool isOpenPort();

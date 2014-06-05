@@ -11,7 +11,7 @@ MaestroController::MaestroController() {
 	ioDeviceHandle = -1;
 }
 
-void MaestroController::setPort(const char * portName)
+void MaestroController::setPort(std::string portName)
 {
     ioDeviceHandlePath = portName;
 }
@@ -48,7 +48,7 @@ int MaestroController::readRespons()
 
 void MaestroController::openPort()
 {
-    ioDeviceHandle = open(ioDeviceHandlePath, O_RDWR | O_NOCTTY);
+    ioDeviceHandle = open(ioDeviceHandlePath.c_str(), O_RDWR | O_NOCTTY);
 
     struct termios options;
     tcgetattr(ioDeviceHandle, &options);
