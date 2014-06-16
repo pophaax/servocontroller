@@ -29,11 +29,14 @@ int SensorObject::getDirection()
 {
 	int high = 0, low = 0;
 	for (int i = 0; i < 1000; i++) {
-		
-		if (getPosition() > 100) {
-			high++;
-		} else {
-			low++;
+		try {
+			if (getPosition() > 100) {
+				high++;
+			} else {
+				low++;
+			}
+		} catch (const char * error) {
+			//log error? add another iteration?
 		}
 	}
 	float percent = ((float)high) / (low+high);

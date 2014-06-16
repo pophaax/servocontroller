@@ -25,8 +25,6 @@ void servoExample() {
     
     servo->setController(maestro);
     servo->setChannel(1);
-    servo->setMin(2000);
-    servo->setMax(4000);
     while(true) {
         int position;
         cout << "Enter position: ";
