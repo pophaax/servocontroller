@@ -36,7 +36,7 @@ int SensorObject::getDirection()
 				low++;
 			}
 		} catch (const char * error) {
-			//log error? add another iteration?
+			i--;
 		}
 	}
 	float percent = ((float)high) / (low+high);
