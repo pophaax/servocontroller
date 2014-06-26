@@ -21,7 +21,7 @@ void servoExample() {
   MaestroController* maestro = new MaestroController();
   ServoObject* servo = new ServoObject();
   try {
-    maestro->setPort("/dev/ttyACM0");
+    maestro->setPort("/dev/ttyACM1");
     
     servo->setController(maestro);
     servo->setChannel(1);
@@ -64,8 +64,8 @@ void sensorExample() {
 
 int main(int argc, char** argv) {
 
-  //servoExample();
-  sensorExample();
+  servoExample();
+  //sensorExample();
   return 0;
 
 }
