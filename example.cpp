@@ -21,7 +21,7 @@ void servoExample() {
   MaestroController* maestro = new MaestroController();
   ServoObject* servo = new ServoObject();
   try {
-    maestro->setPort("/dev/ttyACM1");
+    maestro->setPort("/dev/ttyACM0");
     
     servo->setController(maestro);
     servo->setChannel(1);
