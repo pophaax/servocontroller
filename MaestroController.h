@@ -40,21 +40,20 @@ const int GET_ERROR =           0xA1;
 
 class MaestroController {
 public:
+	MaestroController();
+	~MaestroController();
 
-    MaestroController();
-    ~MaestroController();
-    
-    void setPort(std::string portName);
-    void writeCommand(unsigned char type, int channel, int value);
-    int readRespons();
-    
+	void setPort(std::string portName);
+	void writeCommand(unsigned char type, int channel, int value);
+	int readRespons();
+	int getError();
+
 private:
-    int ioDeviceHandle;
-    std::string ioDeviceHandlePath;
+	int ioDeviceHandle;
+	std::string ioDeviceHandlePath;
 
-    void openPort();
-    bool isOpenPort();
-
+	void openPort();
+	bool isOpenPort();
 };
 
 #endif	/* MAESTROCONTROLLER_H */

@@ -15,29 +15,29 @@
 class ServoObject {
 public:
 
-    ServoObject();
-    ~ServoObject();
-    
-    // void loadConfig(cfg);
-    void setController(MaestroController * maestro);
-    
-    void setChannel(int channel);
+	ServoObject();
+	~ServoObject();
 
-    void setSpeed(unsigned short speed);
-    void setAcceleration(unsigned short acceleration);
-    void setPosition(unsigned short position);
-    
-    int getPosition();
+	// void loadConfig(cfg);
+	void setController(MaestroController * maestro);
+
+	void setChannel(int channel);
+
+	void setSpeed(unsigned short speed);
+	void setAcceleration(unsigned short acceleration);
+	void setPosition(unsigned short position);
+
+	int getPosition();
 
 private:
-    int m_channel;
+	int m_channel;
 
-    int m_range;
-    int m_speed;
-    int m_acceleration;
-    
-    MaestroController * m_maestro;
-    
+	int m_range;
+	int m_speed;
+	int m_acceleration;
+
+	MaestroController * m_maestro;
+
 };
 
 #endif
