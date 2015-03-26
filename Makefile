@@ -40,3 +40,6 @@ $(FILE_SENSOR) : $(SOURCES_SENSOR) $(HEADERS_SENSOR)
 example : $(SOURCES) $(HEADERS)
 	$(CC) $(SOURCES) example.cpp $(FLAGS) $(LIBS) -o example
 
+clean :
+	rm -f $(FILE_MAESTRO) $(FILE_SERVO) $(FILE_SENSOR)
+	rm -f example
