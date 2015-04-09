@@ -15,7 +15,6 @@
 #include "SensorObject.h"
 #include "MaestroController.h"
 
-using namespace std;
 
 void servoExample() {
   MaestroController* maestro = new MaestroController();
@@ -27,16 +26,16 @@ void servoExample() {
     servo->setChannel(1);
     while(true) {
         int position;
-        cout << "Enter position: ";
-        cin >> position;
+        std::cout << "Enter position: ";
+        std::cin >> position;
         servo->setPosition(position);
-        cout << servo->getPosition() << endl;
-        cout << "#Status " << endl;
-        cout << "#Servo position > " << 
-        servo->getPosition() << endl;
+        std::cout << servo->getPosition() << std::endl;
+        std::cout << "#Status " << std::endl;
+        std::cout << "#Servo position > " << 
+        servo->getPosition() << std::endl;
     }
   } catch(const char* error) {
-      cout << error << "\n";
+      std::cout << error << "\n";
   }
   delete servo;
   delete maestro;
@@ -52,11 +51,11 @@ void sensorExample() {
     sensor->setChannel(5);
     while(true) {
         int position;
-        cin >> position;
-        cout << sensor->getDirection() << endl;
+        std::cin >> position;
+        std::cout << sensor->getDirection() << std::endl;
     }
   } catch(const char* error) {
-      cout << error << "\n";
+      std::cout << error << "\n";
   }
   delete sensor;
   delete maestro;
