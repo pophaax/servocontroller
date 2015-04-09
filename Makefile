@@ -8,7 +8,7 @@
 #######################################################
 
 CC = g++
-FLAGS = -pedantic
+FLAGS = -pedantic -std=c++14
 LIBS =
 
 SOURCES_MAESTRO = MaestroController.cpp
