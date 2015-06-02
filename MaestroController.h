@@ -15,18 +15,9 @@
 #ifndef __MAESTROCONTROLLER_H__
 #define	__MAESTROCONTROLLER_H__
 
-#include <iostream>
 #include <string>
+#include "Actuator.h"
 
-//enum COMMAND_BYTE {
-//    SET_SPEED = 0x87,
-//    SET_ACCELERATION = 0x89,
-//    SET_POSITION = 0x84,
-//    SET_POSITION_HOME = 0xA2,
-//    GET_POSITION = 0x90,
-//    GET_MOVING_STATE = 0x93,
-//    GET_ERROR = 0xA1
-//};
 
 const int SET_SPEED =           0x87;
 const int SET_ACCELERATION =    0x89;
@@ -37,8 +28,7 @@ const int GET_MOVING_STATE =    0x93;
 const int GET_ERROR =           0xA1;
 
 
-
-class MaestroController {
+class MaestroController: public Actuator {
 public:
 	MaestroController();
 	~MaestroController();

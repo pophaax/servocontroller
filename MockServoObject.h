@@ -15,7 +15,7 @@ public:
 	MockServoObject();
 	virtual ~MockServoObject();
 
-	void setController(MaestroController * maestro);
+	void setController(Actuator * maestro);
 
 	void setChannel(int channel);
 

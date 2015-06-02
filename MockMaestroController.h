@@ -8,9 +8,9 @@
 #ifndef SERVOCONTROLLER_MOCKMAESTROCONTROLLER_H_
 #define SERVOCONTROLLER_MOCKMAESTROCONTROLLER_H_
 
-#include "MaestroController.h"
+#include "Actuator.h"
 
-class MockMaestroController:public MaestroController {
+class MockMaestroController:public Actuator {
 public:
 	MockMaestroController();
 	virtual ~MockMaestroController();

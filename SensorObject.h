@@ -10,7 +10,7 @@ public:
 	~SensorObject();
 
     // void loadConfig(cfg);
-    void setController(MaestroController * maestro);
+    void setController(Actuator * maestro);
 	void setChannel(int channel);
 
     int getDirection();
@@ -18,7 +18,7 @@ public:
 private:
 	int getPosition();
     int m_channel;
-    MaestroController * m_maestro;
+    Actuator * m_maestro;
 
 };
 

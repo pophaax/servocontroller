@@ -15,7 +15,7 @@ MockServoObject::~MockServoObject() {
 
 }
 
-void MockServoObject::setController(MaestroController* maestro) {
+void MockServoObject::setController(Actuator* maestro) {
 
 }
 

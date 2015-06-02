@@ -19,7 +19,7 @@ public:
 	~ServoObject();
 
 	// void loadConfig(cfg);
-	void setController(MaestroController * maestro);
+	void setController(Actuator * maestro);
 
 	void setChannel(int channel);
 
@@ -36,7 +36,7 @@ private:
 	int m_speed;
 	int m_acceleration;
 
-	MaestroController * m_maestro;
+	Actuator * m_maestro;
 
 };
 

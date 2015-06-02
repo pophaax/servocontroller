@@ -9,7 +9,7 @@ SensorObject::~SensorObject() {
 
 }
 
-void SensorObject::setController(MaestroController* maestro)
+void SensorObject::setController(Actuator* maestro)
 {
     m_maestro = maestro;
 }

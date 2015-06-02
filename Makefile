@@ -12,7 +12,7 @@ FLAGS = -pedantic -std=c++14
 LIBS =
 
 SOURCES_MAESTRO = MaestroController.cpp
-HEADERS_MAESTRO = MaestroController.h
+HEADERS_MAESTRO = MaestroController.h Actuator.h
 FILE_MAESTRO = MaestroController.o
 
 SOURCES_MAESTRO_MOCK = MockMaestroController.cpp

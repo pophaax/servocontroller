@@ -10,7 +10,7 @@ ServoObject::~ServoObject() {
 
 }
 
-void ServoObject::setController(MaestroController* maestro)
+void ServoObject::setController(Actuator* maestro)
 {
 	m_maestro = maestro;
 }
