@@ -10,6 +10,9 @@
  * 
  * Uses POSIX functions to send and receive data from a Maestro.
  * NOTE: The Maestro's serial mode must be set to "USB Dual Port".
+ *
+ * Pololu Maestro Servo Controller User’s Guide:
+ * https://www.pololu.com/docs/0J40
  */
 
 #ifndef __MAESTROCONTROLLER_H__

@@ -17,7 +17,14 @@ void MaestroController::setPort(std::string portName)
 
 void MaestroController::writeCommand(unsigned char type, int channel = -1, int value = -1)
 {
-	unsigned char command[] = {type, channel, (value & 0x7F), ((value >> 7) & 0x7F) };
+	// Each DATA byte can only transmit seven bits of information.
+	unsigned char mask = 0x7F,
+				  valuePart1 = value & mask,
+				  valuePart2 = (value >> 7) & mask;
+	
+	unsigned char channelLSB = channel & 0xFF;
+
+	unsigned char command[] = {type, channelLSB, valuePart1, valuePart2};
 
 	if (isOpenPort() == false)
 	{
