@@ -51,9 +51,6 @@ $(FILE_SERVO_MOCK) : $(SOURCES_SERVO_MOCK) $(HEADERS_SERVO_MOCK)
 $(FILE_SENSOR) : $(SOURCES_SENSOR) $(HEADERS_SENSOR)
 	$(CC) $(SOURCES_SENSOR) $(FLAGS) $(LIBS) -c -o $(FILE_SENSOR)
 
-example : $(SOURCES) $(HEADERS)
-	$(CC) $(SOURCES) example.cpp $(FLAGS) $(LIBS) -o example
 
 clean :
 	rm -f $(FILE_MAESTRO) $(FILE_SERVO) $(FILE_SENSOR) $(FILE_MOCK)
-	rm -f example
