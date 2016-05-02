@@ -11,7 +11,7 @@ SensorObject::~SensorObject() {
 
 void SensorObject::setController(Actuator* maestro)
 {
-    m_maestro = maestro;
+    m_maestro.reset(maestro);
 }
 
 void SensorObject::setChannel(int channel)

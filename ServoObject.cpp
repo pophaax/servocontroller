@@ -12,7 +12,7 @@ ServoObject::~ServoObject() {
 
 void ServoObject::setController(Actuator* maestro)
 {
-	m_maestro = maestro;
+	m_maestro.reset(maestro); 
 }
 
 void ServoObject::setChannel(int channel)

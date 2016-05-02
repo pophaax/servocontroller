@@ -1,6 +1,8 @@
 #ifndef __SENSOROBJECT_H__
 #define	__SENSOROBJECT_H__
 
+#include <memory>
+
 #include "MaestroController.h"
 
 class SensorObject {
@@ -18,7 +20,7 @@ public:
 private:
 	int getPosition();
     int m_channel;
-    Actuator * m_maestro;
+    std::unique_ptr<Actuator> m_maestro;
 
 };
 

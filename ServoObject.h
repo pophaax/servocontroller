@@ -10,6 +10,7 @@
 #ifndef __SERVOOBJECT_H__
 #define	__SERVOOBJECT_H__
 
+#include <memory>
 #include "MaestroController.h"
 
 class ServoObject {
@@ -36,7 +37,7 @@ private:
 	int m_speed;
 	int m_acceleration;
 
-	Actuator * m_maestro;
+	std::unique_ptr<Actuator> m_maestro;
 
 };
 
