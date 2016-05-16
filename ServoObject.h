@@ -1,10 +1,10 @@
-/* 
+/*
  * File:   ServoObject.h
  * Author: Joakim
  *
  * Created on 20 March 2014, 11:17
  * The main purpose for this class is to implement methods for default servo behavior.
- * 
+ *
  */
 
 #ifndef __SERVOOBJECT_H__
@@ -37,9 +37,8 @@ private:
 	int m_speed;
 	int m_acceleration;
 
-	std::unique_ptr<Actuator> m_maestro;
+	std::shared_ptr<Actuator> m_maestro;
 
 };
 
 #endif
-

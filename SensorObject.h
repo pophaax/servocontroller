@@ -20,7 +20,7 @@ public:
 private:
 	int getPosition();
     int m_channel;
-    std::unique_ptr<Actuator> m_maestro;
+    std::shared_ptr<Actuator> m_maestro;
 
 };
 
